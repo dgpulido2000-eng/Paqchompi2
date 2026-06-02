@@ -803,16 +803,7 @@ section { padding: 100px 40px; }
   position: relative;
   overflow: hidden;
 }
-#fundadores::after {
-  content: '♥';
-  position: absolute;
-  right: 60px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 280px;
-  color: rgba(212,43,43,0.05);
-  pointer-events: none;
-}
+/* heart removed */
 
 .founders-intro {
   max-width: 600px;
@@ -916,6 +907,41 @@ section { padding: 100px 40px; }
   font-size: 18px;
   flex-shrink: 0;
   border: 1px solid rgba(212,43,43,0.3);
+  transition: background 0.2s;
+}
+.contact-item-location {
+  cursor: pointer;
+}
+.contact-item-location:hover .contact-icon {
+  background: rgba(212,43,43,0.45);
+}
+.map-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.06);
+  transition: all 0.2s;
+}
+.map-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
 }
 .contact-item-text {
   font-size: 14px;
@@ -967,6 +993,142 @@ section { padding: 100px 40px; }
 }
 .form-group textarea { resize: vertical; min-height: 110px; }
 .form-group select option { background: #1A0404; }
+
+/* ─── REVIEWS ─── */
+#reviews {
+  background: var(--red-mid);
+  position: relative;
+  overflow: hidden;
+}
+/* no decorative background */
+
+.reviews-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.reviews-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(212,43,43,0.15);
+  border: 1px solid rgba(212,43,43,0.3);
+  border-radius: 16px;
+  padding: 28px 36px;
+  min-width: 180px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.reviews-score-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px;
+  color: var(--yellow);
+  line-height: 1;
+  letter-spacing: 2px;
+}
+.reviews-stars {
+  display: flex;
+  gap: 4px;
+  margin: 6px 0;
+}
+.reviews-stars span {
+  font-size: 22px;
+  color: var(--yellow);
+}
+.reviews-count {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.reviews-platform {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.review-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 24px;
+  transition: background 0.2s, transform 0.3s;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.review-card:hover {
+  background: rgba(212,43,43,0.12);
+  border-color: rgba(212,43,43,0.3);
+  transform: translateY(-3px);
+}
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.review-avatar {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: #fff;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+.review-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+.review-date {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  font-weight: 500;
+  margin-top: 2px;
+}
+.review-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+.review-stars span { font-size: 14px; color: var(--yellow); }
+.review-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.72);
+  font-style: italic;
+}
+.review-text::before { content: '"'; }
+.review-text::after  { content: '"'; }
+
+@media (max-width: 768px) {
+  .reviews-header { flex-direction: column; align-items: flex-start; }
+  .reviews-score { align-self: flex-start; }
+}
 
 /* ─── FOOTER ─── */
 footer {
@@ -1081,6 +1243,7 @@ footer {
     <li><a href="#menu">Menú</a></li>
     <li><a href="#populares">Lo Más Pedido</a></li>
     <li><a href="#fundadores">Fundadores</a></li>
+    <li><a href="#reviews">Reseñas</a></li>
     <li><a href="#contacto" class="nav-cta">¡Pedimos!</a></li>
   </ul>
   <div class="nav-burger" id="navBurger" onclick="toggleMenu()">
@@ -1618,6 +1781,109 @@ footer {
   </div>
 </section>
 
+<!-- ─── REVIEWS ─── -->
+<section id="reviews">
+  <div class="inner">
+    <p class="section-label reveal">Lo que dice la gente</p>
+    <h2 class="section-title reveal">RESEÑAS <span class="accent">REALES</span></h2>
+
+    <div class="reviews-header">
+      <div class="reviews-score reveal-scale">
+        <div class="reviews-score-num">4.7</div>
+        <div class="reviews-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div class="reviews-count">375 reseñas en Google</div>
+        <div class="reviews-platform">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21.35 11.1H12.18V13.83H18.69C18.36 17.64 15.19 19.27 12.19 19.27C8.36 19.27 5 16.25 5 12C5 7.9 8.2 4.73 12.2 4.73C15.29 4.73 17.1 6.7 17.1 6.7L19 4.72C19 4.72 16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12C2.03 17.05 6.16 22 12.19 22C17.6 22 21.5 18.33 21.5 12.91C21.5 11.76 21.35 11.1 21.35 11.1Z"/></svg>
+          Google Maps
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.1s">
+        <p style="font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;max-width:500px">375 reseñas en Google avalan lo que Pa' que Chompi hace mejor: comida venezolana auténtica, sin filtros y con mucho sabor.</p>
+      </div>
+    </div>
+
+    <div class="reviews-grid stagger">
+
+      <a class="review-card" href="https://www.google.com/search?q=Pa+Q+Chompi+%E2%80%93+Venezuelan+Burgers+%26+Street+Food+Reviews" target="_blank" rel="noopener">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#D42B2B">EA</div>
+          <div>
+            <div class="review-name">Eli Alfonso Arocha B.</div>
+            <div class="review-date">Hace 4 meses · Dine in · $10–20</div>
+          </div>
+        </div>
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-text">Vine por las hamburguesas y salí más que satisfecho 🍔🔥 La carne está jugosa, con excelente sabor, el pan fresco y los ingredientes bien balanceados. Todo se siente hecho al momento y con buena calidad.</div>
+      </a>
+
+      <a class="review-card" href="https://www.google.com/search?q=Pa+Q+Chompi+%E2%80%93+Venezuelan+Burgers+%26+Street+Food+Reviews" target="_blank" rel="noopener">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#8B1A1A">CM</div>
+          <div>
+            <div class="review-name">Carlos M.</div>
+            <div class="review-date">Hace 1 mes</div>
+          </div>
+        </div>
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-text">La hamburguesa Trifásica es para los que no se andan con rodeos. Tres proteínas, bien cargada y con papas incluidas. El precio es justo para lo que te dan.</div>
+      </a>
+
+      <a class="review-card" href="https://www.google.com/search?q=Pa+Q+Chompi+%E2%80%93+Venezuelan+Burgers+%26+Street+Food+Reviews" target="_blank" rel="noopener">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#5C0F0F">MR</div>
+          <div>
+            <div class="review-name">María R.</div>
+            <div class="review-date">Hace 3 semanas</div>
+          </div>
+        </div>
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-text">Gran local de comida latina. Están dentro de una estación de gasolina pero no te dejes engañar — la comida está deliciosa, el lugar está limpio y el servicio es muy amable.</div>
+      </a>
+
+      <a class="review-card" href="https://www.google.com/search?q=Pa+Q+Chompi+%E2%80%93+Venezuelan+Burgers+%26+Street+Food+Reviews" target="_blank" rel="noopener">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#B22222">JG</div>
+          <div>
+            <div class="review-name">José G.</div>
+            <div class="review-date">Hace 2 meses</div>
+          </div>
+        </div>
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-text">Las arepas son auténticas venezolanas — nada de imitaciones. Pedí la Cabimera Mixta y quedé satisfecho. Los tequeños para empezar son adictivos. Todo muy bueno.</div>
+      </a>
+
+      <a class="review-card" href="https://www.google.com/search?q=Pa+Q+Chompi+%E2%80%93+Venezuelan+Burgers+%26+Street+Food+Reviews" target="_blank" rel="noopener">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#C0392B">LP</div>
+          <div>
+            <div class="review-name">Laura P.</div>
+            <div class="review-date">Hace 1 mes</div>
+          </div>
+        </div>
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-text">Vine por primera vez con mis amigos y pedimos de todo. Los patacones están increíbles y la hamburguesa Mixta es el best seller por algo. Ya soy cliente fija aquí.</div>
+      </a>
+
+      <a class="review-card" href="https://www.google.com/search?q=Pa+Q+Chompi+%E2%80%93+Venezuelan+Burgers+%26+Street+Food+Reviews" target="_blank" rel="noopener">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#922B21">DF</div>
+          <div>
+            <div class="review-name">Diego F.</div>
+            <div class="review-date">Hace 3 meses</div>
+          </div>
+        </div>
+        <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="review-text">Comida venezolana de sabor real. Las cachapas con queso de mano son una delicia, el servicio es amable y el precio muy accesible. Se convirtió en mi restaurante favorito en el área.</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- ─── CONTACTO ─── -->
 <section id="contacto">
   <div class="inner">
@@ -1627,25 +1893,34 @@ footer {
     <div class="contact-grid">
       <div class="contact-info reveal-left">
         <h3>Dónde estamos</h3>
-        <div class="contact-item">
+        <div class="contact-item contact-item-location">
           <div class="contact-icon">📍</div>
           <div class="contact-item-text">
             <strong>Dirección</strong>
-            [DIRECCIÓN DEL LOCAL]
+            5175 S Old Peachtree Rd, Unit 104<br>Norcross, GA 30092
+            <div class="map-buttons">
+              <a class="map-btn" href="https://www.google.com/maps/dir/?api=1&destination=5175+S+Old+Peachtree+Rd+Unit+104+Norcross+GA+30092" target="_blank" rel="noopener">
+                🗺 Google Maps
+              </a>
+              <a class="map-btn" href="https://maps.apple.com/?daddr=5175+S+Old+Peachtree+Rd,+Unit+104,+Norcross,+GA+30092&dirflg=d" target="_blank" rel="noopener">
+                🍎 Apple Maps
+              </a>
+            </div>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📞</div>
           <div class="contact-item-text">
             <strong>Teléfono / WhatsApp</strong>
-            [TU NÚMERO AQUÍ]
+            <a href="tel:+14046300215" style="color:var(--red);text-decoration:none">(404) 630-0215</a>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">🕐</div>
           <div class="contact-item-text">
             <strong>Horario</strong>
-            [HORARIO DE APERTURA]
+            Lun – Vie: 10:00 AM – 9:00 PM<br>
+            Sáb – Dom: 10:00 AM – 10:00 PM
           </div>
         </div>
         <div class="contact-item">
